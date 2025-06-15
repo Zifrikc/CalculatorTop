@@ -23,9 +23,7 @@
             <ion-card-title>TOTAL</ion-card-title>
           </ion-card-header>
           <ion-card-content class="display-area">
-            <app-base10-block [count]="total.centenas" type="centena"></app-base10-block>
-            <app-base10-block [count]="total.decenas" type="decena"></app-base10-block>
-            <app-base10-block [count]="total.unidades" type="unidad"></app-base10-block>
+
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -38,9 +36,7 @@
         <ion-card class="zona parte-zona" [class.active-box]="activeBox === 'parte1'">
           <ion-card-header><ion-card-title>PARTE 1</ion-card-title></ion-card-header>
           <ion-card-content class="display-area">
-             <app-base10-block [count]="parte1.centenas" type="centena"></app-base10-block>
-             <app-base10-block [count]="parte1.decenas" type="decena"></app-base10-block>
-             <app-base10-block [count]="parte1.unidades" type="unidad"></app-base10-block>
+
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -49,9 +45,7 @@
         <ion-card class="zona parte-zona" [class.active-box]="activeBox === 'parte2'">
           <ion-card-header><ion-card-title>PARTE 2</ion-card-title></ion-card-header>
           <ion-card-content class="display-area">
-            <app-base10-block [count]="parte2.centenas" type="centena"></app-base10-block>
-            <app-base10-block [count]="parte2.decenas" type="decena"></app-base10-block>
-            <app-base10-block [count]="parte2.unidades" type="unidad"></app-base10-block>
+
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -72,7 +66,6 @@
       </ion-segment-button>
     </ion-segment>
 
-    <!-- Panel de control que emite el evento (change) -->
-    <app-control-panel (change)="handleBlockChange($event)"></app-control-panel>
+
   </ion-toolbar>
 </ion-footer>

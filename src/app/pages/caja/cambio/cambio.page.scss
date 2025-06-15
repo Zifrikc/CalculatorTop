@@ -1,0 +1,107 @@
+ion-content {
+  --background: #f4f5f8;
+}
+
+.cajita-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 15px;
+}
+
+.seccion, .sub-seccion {
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+  &.activa {
+    border-color: var(--ion-color-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(var(--ion-color-secondary-rgb), 0.3);
+  }
+
+  // La caja FINAL no es clickeable, tiene estilo diferente
+  &.final {
+    background: var(--ion-color-primary);
+    color: white;
+    border-color: var(--ion-color-primary-shade);
+    cursor: default;
+    h2 {
+      color: white;
+    }
+  }
+
+  h2, h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+  }
+}
+
+.seccion-cambio {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+  .sub-seccion {
+    width: 100%;
+  }
+}
+
+.valor-total {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--ion-color-primary);
+}
+
+.final .valor-total {
+  color: white;
+}
+
+.contadores {
+  font-family: monospace;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 5px;
+  border-radius: 8px;
+  span {
+      font-weight: 600;
+  }
+}
+
+.final .contadores {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+// Footer con los controles de material
+ion-footer {
+  .material-panel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+  }
+  
+  .material-control {
+    text-align: center;
+    img { 
+      height: 35px;
+      margin-bottom: 4px; 
+    }
+    ion-button {
+      font-size: 1.8em;
+      --padding-start: 5px;
+      --padding-end: 5px;
+    }
+  }
+}

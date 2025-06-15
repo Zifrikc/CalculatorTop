@@ -1,13 +1,82 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>cambio</ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- Botón para abrir el menú lateral -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Taller de Cambio</ion-title>
+    <!-- Botones de acción -->
+    <ion-buttons slot="end">
+      <!-- Botón Reiniciar (Flecha Azul) -->
+      <ion-button (click)="reiniciar()">
+        <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
+      </ion-button>
+      <!-- Botón Volver a Menú (ya está en el sidebar, pero lo mantenemos por acceso rápido) -->
+       <ion-button routerLink="/menu">
+        <ion-icon slot="icon-only" name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cambio</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <!-- Área de las Cajas (MIDDLE) -->
+  <div class="cajita-grid">
+    <!-- CAJA INICIO -->
+    <div class="seccion" (click)="seleccionarSeccion('inicio')" [class.activa]="seccionActiva === 'inicio'">
+      <h2>INICIO</h2>
+      <div class="valor-total">{{ valores['inicio'] }}</div>
+      <div class="contadores">
+        <span>U: {{ contadores['inicio'].U }}</span>
+        <span>D: {{ contadores['inicio'].D }}</span>
+        <span>C: {{ contadores['inicio'].C }}</span>
+        <span>UM: {{ contadores['inicio'].UM }}</span>
+      </div>
+    </div>
+
+    <!-- CAJAS AUMENTA/DISMINUYE -->
+    <div class="seccion-cambio">
+      <div class="sub-seccion" (click)="seleccionarSeccion('aumenta')" [class.activa]="seccionActiva === 'aumenta'">
+        <h3>AUMENTA (+)</h3>
+        <div class="valor-total">{{ valores['aumenta'] }}</div>
+      </div>
+      <div class="sub-seccion" (click)="seleccionarSeccion('disminuye')" [class.activa]="seccionActiva === 'disminuye'">
+        <h3>DISMINUYE (-)</h3>
+        <div class="valor-total">{{ valores['disminuye'] }}</div>
+      </div>
+    </div>
+
+    <!-- CAJA FINAL -->
+    <div class="seccion final">
+      <h2>FINAL</h2>
+      <div class="valor-total">{{ valores['final'] }}</div>
+      <div class="contadores">
+        <span>U: {{ contadores['final'].U }}</span>
+        <span>D: {{ contadores['final'].D }}</span>
+        <span>C: {{ contadores['final'].C }}</span>
+        <span>UM: {{ contadores['final'].UM }}</span>
+      </div>
+    </div>
+  </div>
 </ion-content>
+
+<!-- Área de Controles de Material (BOTTOM) -->
+<ion-footer>
+  <ion-toolbar>
+    <div class="material-panel">
+      <div *ngFor="let material of materiales" class="material-control">
+        <img [src]="'/assets/icon/' + material.id + '.svg'" [alt]="material.nombre">
+        <div>
+          <!-- Botón Azul (+) -->
+          <ion-button (click)="agregar(material.id)" color="success" fill="clear">
+            <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+          </ion-button>
+          <!-- Botón Rojo (-) -->
+          <ion-button (click)="quitar(material.id)" color="danger" fill="clear">
+            <ion-icon slot="icon-only" name="remove-circle"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

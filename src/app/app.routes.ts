@@ -29,9 +29,6 @@ export const routes: Routes = [
   {
     path: 'cambio',
     loadComponent: () => import('./pages/caja/cambio/cambio.page').then( m => m.CambioPage)
-  },
-  {
-    path: 'base10-block',
-    loadComponent: () => import('./components/base10-block/base10-block.component').then( m => m.Base10BlockComponent)
-  },
+  }
 ];
+

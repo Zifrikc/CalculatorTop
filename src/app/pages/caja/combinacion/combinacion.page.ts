@@ -5,9 +5,6 @@ import { IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent,
 import { addIcons } from 'ionicons';
 import { arrowBack, refresh } from 'ionicons/icons';
 
-import { ControlPanelComponent, BlockChangeEvent } from '../../../components/control-panel/control-panel.component';
-import { Base10BlockComponent } from '../../../components/base10-block/base10-block.component';
-
 @Component({
   selector: 'app-combinacion',
   templateUrl: './combinacion.page.html',
@@ -20,8 +17,7 @@ import { Base10BlockComponent } from '../../../components/base10-block/base10-bl
     IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent, 
     IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent, 
     IonFab, IonFabButton, IonIcon, IonSegment, IonSegmentButton, IonLabel, IonFooter,
-    ControlPanelComponent, // <-- Nuestro panel de control con los botones +/-
-    Base10BlockComponent   // <-- El componente que dibuja los bloques
+
   ]
 })
 export class CombinacionPage {
@@ -37,7 +33,7 @@ export class CombinacionPage {
     this.calcularTotal();
   }
 
-  handleBlockChange(event: BlockChangeEvent) {
+  handleBlockChange(event: any) {
     console.log('📦 Evento recibido en combinación:', event);
     const targetBox = this.activeBox === 'parte1' ? this.parte1 : this.parte2;
     const typeKey = event.type as keyof typeof targetBox;
