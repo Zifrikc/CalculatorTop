@@ -1,0 +1,6 @@
+<!-- Contenedor principal que cambia de clase según el tipo de bloque -->
+<div class="block-container" [ngClass]="type + '-container'">
+  <!-- Itera y dibuja un bloque por cada elemento en el contador -->
+  <div *ngFor="let i of counter()" class="block" [ngClass]="type"></div>
+</div>
+

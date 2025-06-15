@@ -1,20 +1,22 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid class="h-full">
+    <ion-row class="ion-justify-content-center ion-align-items-center h-full">
+      <ion-col size="12" size-md="6" class="ion-text-center">
+        
+        <!-- Aquí puedes poner el logo de tu aplicación -->
+        <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1749694477/operatorlogo1_wcifzx.png" alt="Logo de OperatorTop" style="max-width: 150px; margin-bottom: 20px;"/>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+        <ion-text color="primary">
+          <h1>OperatorTop</h1>
+        </ion-text>
+        <ion-text>
+          <p>Aprendiendo matemáticas de forma divertida</p>
+        </ion-text>
+        
+        <!-- Un spinner para indicar que la app está cargando -->
+        <ion-spinner name="crescent" color="primary" class="mt-4"></ion-spinner>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

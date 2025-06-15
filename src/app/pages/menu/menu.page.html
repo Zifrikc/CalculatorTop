@@ -1,0 +1,83 @@
+<ion-app>
+  <ion-menu side="start" menuId="main-menu" contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>CalculatorTop</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item routerLink="/menu">Menú Principal</ion-item>
+        <ion-item routerLink="/caja/combinacion">Caja: Combinación</ion-item>
+        <ion-item routerLink="/caja/comparacion-igualacion">Caja: Comparación</ion-item>
+        <ion-item routerLink="/caja/cambio">Caja: Cambio</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
+</ion-app>
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- Botón para abrir el menú lateral -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Menú Principal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <h2>¡Hola!</h2>
+        <p>¿Qué vamos a aprender hoy?</p>
+      </ion-col>
+    </ion-row>
+
+    <!-- Tarjetas de navegación a las cajas de actividades -->
+    <ion-row>
+      <!-- Opción 1: Combinación -->
+      <ion-col size="12" size-md="4">
+        <ion-card [routerLink]="['/combinacion']" button="true" class="ion-activatable">
+          <ion-card-header class="ion-text-center">
+            <ion-icon name="grid-outline" color="secondary" style="font-size: 64px;"></ion-icon>
+            <ion-card-title>Combinación</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            Junta las partes para encontrar el total.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Opción 2: Comparación e Igualación -->
+      <ion-col size="12" size-md="4">
+        <ion-card [routerLink]="['/comparacion-igualacion']" button="true" class="ion-activatable">
+          <ion-card-header class="ion-text-center">
+            <ion-icon name="swap-horizontal-outline" color="tertiary" style="font-size: 64px;"></ion-icon>
+            <ion-card-title>Comparación</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            Compara dos cantidades y encuentra la diferencia.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Opción 3: Cambio -->
+      <ion-col size="12" size-md="4">
+        <ion-card [routerLink]="['/cambio']" button="true" class="ion-activatable">
+          <ion-card-header class="ion-text-center">
+            <ion-icon name="help-circle-outline" color="warning" style="font-size: 64px;"></ion-icon>
+            <ion-card-title>Cambio</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            Descubre cuánto ha cambiado una cantidad.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
