@@ -12,6 +12,7 @@ interface Material {
   id: MaterialId;
   nombre: string;
   valor: number;
+  imageUrl: string;
 }
 
 @Component({
@@ -36,10 +37,11 @@ export class CambioPage {
 
   // Usamos la interfaz 'Material' para tipar el array
   materiales: Material[] = [
-    { id: 'U', nombre: 'Unidad', valor: 1 },
-    { id: 'D', nombre: 'Decena', valor: 10 },
-    { id: 'C', nombre: 'Centena', valor: 100 },
-    { id: 'UM', nombre: 'Unidad de Millar', valor: 1000 },
+    // ACTUALIZACIÓN: Se añade la propiedad imageUrl con las URLs correspondientes
+    { id: 'U', nombre: 'Unidad', valor: 1, imageUrl: 'https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750047211/unidad_ideokk.png' },
+    { id: 'D', nombre: 'Decena', valor: 10, imageUrl: 'https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750047708/decena_n4owvo.png' },
+    { id: 'C', nombre: 'Centena', valor: 100, imageUrl: 'https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750047712/centena_etpbiy.png' },
+    { id: 'UM', nombre: 'Unidad de Millar', valor: 1000, imageUrl: 'https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750047736/millar_eqreqz.png' },
   ];
 
   seccionActiva: 'inicio' | 'aumenta' | 'disminuye' = 'inicio';

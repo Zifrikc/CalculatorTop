@@ -1,0 +1,189 @@
+ion-content {
+  --background: #f4f5f8;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.titulo-principal {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+}
+
+.grid-comparacion {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
+  // Colocamos la caja de diferencia en la primera fila, ocupando ambas columnas
+  grid-template-areas:
+    "resultado resultado"
+    "entrada1 entrada2";
+}
+
+.seccion {
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+  }
+}
+
+.entrada {
+  cursor: pointer;
+  &.activa {
+    border-color: var(--ion-color-secondary);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(var(--ion-color-secondary-rgb), 0.3);
+  }
+}
+
+.resultado {
+  grid-area: resultado;
+  background-color: var(--ion-color-secondary-tint);
+  border-color: var(--ion-color-secondary);
+  cursor: default;
+}
+
+// Asignamos las áreas del grid a los elementos
+.grid-comparacion > .seccion:nth-child(1) { grid-area: resultado; }
+.grid-comparacion > .seccion:nth-child(2) { grid-area: entrada1; }
+.grid-comparacion > .seccion:nth-child(3) { grid-area: entrada2; }
+
+.valor-total {
+  font-size: 3em;
+  font-weight: 700;
+  color: var(--ion-color-secondary-shade);
+}
+
+.valor-entrada {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: var(--ion-color-secondary);
+  margin-bottom: 8px;
+}
+
+.contadores {
+  font-family: monospace;
+  font-size: 0.9em;
+  display: flex;
+  flex-wrap: wrap; // Permite que los elementos pasen a la siguiente línea si no caben
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.568);
+  padding: 5px;
+  border-radius: 8px;
+  span {
+      font-weight: 600;
+      padding: 0 4px;
+  }
+}
+
+// Estilos del footer, se mantienen consistentes
+ion-footer {
+  .material-panel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+  }
+  
+  .material-control {
+    text-align: center;
+    img { 
+      height: 60px;
+      margin-bottom: 4px; 
+      border-radius: 15px;
+    }
+    ion-button {
+      font-size: 1.8em;
+      --padding-start: 5px;
+      --padding-end: 5px;
+    }
+  }
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+.seccion {
+  // REEMPLAZAMOS el fondo y borde con tu imagen de caja
+  background: url('https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750368792/box1_enxgsz.png') no-repeat center center;
+  background-size: 100% 100%; // Estira la imagen para que cubra la caja
+  border: none; // Quitamos el borde anterior
+  
+  padding: 20px;
+  color: white; // Texto blanco para que contraste con la madera
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); // Sombra para legibilidad
+  
+  // ... (el resto de propiedades de .seccion como display, flex-direction, etc. se mantienen)
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h3 {
+    color: white; // Títulos blancos
+    font-weight: 900;
+  }
+}
+
+.entrada {
+  &.activa {
+    // El efecto de "activa" ahora es un brillo exterior
+    filter: drop-shadow(0 0 15px var(--ion-color-secondary));
+    transform: scale(1.03); // Hacemos que crezca un poco
+  }
+}
+
+.resultado {
+    // ... (se mantienen los estilos, pero el fondo de imagen ya lo hereda de .seccion)
+}
+
+// Estilos para los números y su animación
+.valor-total, .valor-entrada {
+  font-weight: 900;
+  transition: color 0.2s;
+  
+  &.pop {
+    animation: pop 0.3s ease-out;
+  }
+}
+
+.contadores {
+  background: rgba(0, 0, 0, 0.2); // Fondo semi-transparente para contraste
+  color: white;
+  // ... (el resto de estilos de .contadores se mantienen)
+}
+
+// Mejoras en el footer
+ion-footer .material-control {
+  transition: transform 0.2s;
+  &:active {
+    transform: scale(0.9); // Efecto de "presionado" en los controles
+  }
+}

@@ -1,76 +1,117 @@
-/*
-  Usamos .native para asegurar que los estilos se apliquen
-  correctamente dentro del Shadow DOM de Ionic.
-*/
-:host {
-  ion-content {
-    --background: #f4f5f8;
+ion-content {
+  --background: #f4f5f8;
+}
+
+.cajita-grid {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 15px;
+}
+
+.seccion {
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+  &.activa {
+    border-color: var(--ion-color-tertiary);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(var(--ion-color-tertiary-rgb), 0.3);
   }
 
-  .caja-combinacion {
-    height: 100%;
+  h2, h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #000000;
+  }
+}
+
+// Estilo específico para la caja de resultado "Total"
+.total {
+  flex: 1; /* Ocupa más espacio vertical */
+  background: var(--ion-color-primary);
+  color: white;
+  border-color: var(--ion-color-primary-shade);
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    color: white;
+  }
+
+  .valor-total {
+    font-size: 3.5em;
+    font-weight: 700;
+    color: white;
+  }
+
+  .contadores {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.partes-container {
+  display: flex;
+  gap: 15px;
+  flex: 1; /* Ocupa el espacio restante */
+  
+  .seccion {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
+}
 
-  .zona {
-    border: 4px solid #8c5e3c;
-    background: #fff8e1;
-    border-radius: 10px;
-    min-height: 180px; // Reducimos un poco la altura mínima para pantallas pequeñas
+.valor-total-parte {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: var(--ion-color-tertiary);
+  margin-bottom: 8px;
+}
+
+.contadores {
+  font-family: monospace;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.521);
+  padding: 5px;
+  border-radius: 8px;
+  span {
+      font-weight: 600;
+  }
+}
+
+// Estilos del footer, se mantienen consistentes
+ion-footer {
+  .material-panel {
     display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease-in-out;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
   }
-
-  .zona ion-card-header {
-    padding-bottom: 8px;
-  }
-
-  .zona ion-card-title {
+  
+  .material-control {
     text-align: center;
-    font-weight: bold;
-    color: #5d4037;
-    padding: 5px;
-    border-radius: 5px;
-  }
-
-  .zona ion-card-content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 8px;
-    justify-content: flex-start;
-  }
-
-  .total-zona ion-card-title {
-    background-color: #e91e63;
-    color: white;
-  }
-
-  .parte-zona ion-card-title {
-    background-color: #2196f3;
-    color: white;
-  }
-
-  .active-box {
-    border-color: #ffc107;
-    box-shadow: 0 0 15px rgba(255, 193, 7, 0.7);
-  }
-
-  .display-area {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: flex-end;
-  }
-
-  ion-footer {
-    ion-toolbar {
-      --background: #ffffff;
-      padding-bottom: env(safe-area-inset-bottom); // Añade espacio en iPhones con notch
+    img { 
+      height: 60px;
+      margin-bottom: 4px; 
+      border-radius: 15px;
+    }
+    ion-button {
+      font-size: 1.8em;
+      --padding-start: 5px;
+      --padding-end: 5px;
     }
   }
 }

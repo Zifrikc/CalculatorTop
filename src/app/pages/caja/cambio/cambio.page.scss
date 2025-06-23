@@ -11,8 +11,8 @@ ion-content {
 }
 
 .seccion, .sub-seccion {
-  background: #ffffff;
-  border: 2px solid #e0e0e0;
+  background: #32fc86;
+  border: 2px solid #00b2f8;
   border-radius: 12px;
   padding: 12px;
   text-align: center;
@@ -28,12 +28,12 @@ ion-content {
 
   // La caja FINAL no es clickeable, tiene estilo diferente
   &.final {
-    background: var(--ion-color-primary);
-    color: white;
-    border-color: var(--ion-color-primary-shade);
+    background: var(--ion-color-secondary);
+    color: rgb(255, 255, 255);
+    border-color: var(--ion-color-secondary-rgb);
     cursor: default;
     h2 {
-      color: white;
+      color: rgb(255, 255, 255);
     }
   }
 
@@ -41,7 +41,7 @@ ion-content {
     margin-top: 0;
     margin-bottom: 8px;
     font-weight: 600;
-    color: #333;
+    color: #ffffff;
   }
 }
 
@@ -58,7 +58,7 @@ ion-content {
   font-size: 2.5em;
   font-weight: 700;
   margin-bottom: 8px;
-  color: var(--ion-color-primary);
+  color: var(--ion-color-secondary-rgb);
 }
 
 .final .valor-total {
@@ -79,7 +79,7 @@ ion-content {
 }
 
 .final .contadores {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 
@@ -95,10 +95,12 @@ ion-footer {
   .material-control {
     text-align: center;
     img { 
-      height: 35px;
+      height: 60px;
       margin-bottom: 4px; 
+      border-radius: 15px;
     }
     ion-button {
+      border-radius: 10px;
       font-size: 1.8em;
       --padding-start: 5px;
       --padding-end: 5px;

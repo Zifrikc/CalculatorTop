@@ -65,7 +65,7 @@
   <ion-toolbar>
     <div class="material-panel">
       <div *ngFor="let material of materiales" class="material-control">
-        <img [src]="'/assets/icon/' + material.id + '.svg'" [alt]="material.nombre">
+        <img [src]="material.imageUrl" [alt]="material.nombre">
         <div>
           <!-- Botón Azul (+) -->
           <ion-button (click)="agregar(material.id)" color="success" fill="clear">

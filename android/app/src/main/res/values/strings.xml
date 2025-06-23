@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">OperatorTop</string>
+    <string name="title_activity_main">OperatorTop</string>
+    <string name="package_name">com.operatortop.com</string>
+    <string name="custom_url_scheme">com.operatortop.com</string>
+</resources>
