@@ -11,12 +11,11 @@
   <div class="menu-background">
     <ion-grid fixed>
       <ion-row class="ion-justify-content-center ion-align-items-center">
-        <!-- Título animado -->
         <ion-col size="12" class="ion-text-center">
-          <h1 class="welcome-title">¡Elige una Aventura!</h1>
+          <h1 class="welcome-title">¡Elige una Opcion!</h1>
         </ion-col>
         
-        <!-- Botón 1 con imagen -->
+        <!-- Botón 1 con icono -->
         <ion-col size="12" size-md="6" size-lg="4">
           <div class="image-button" routerLink="/cambio">
             <ion-icon name="swap-horizontal-outline"></ion-icon>
@@ -24,7 +23,7 @@
           </div>
         </ion-col>
         
-        <!-- Botón 2 con imagen -->
+        <!-- Botón 2 con icono -->
         <ion-col size="12" size-md="6" size-lg="4">
           <div class="image-button" routerLink="/comparacion-igualacion">
             <ion-icon name="git-compare-outline"></ion-icon>
@@ -32,7 +31,7 @@
           </div>
         </ion-col>
 
-        <!-- Botón 3 con imagen -->
+        <!-- Botón 3 con icono -->
         <ion-col size="12" size-md="6" size-lg="4">
           <div class="image-button" routerLink="/combinacion">
              <ion-icon name="add-circle-outline"></ion-icon>
@@ -43,3 +42,16 @@
     </ion-grid>
   </div>
 </ion-content>
+<!-- Modal de Bienvenida que se superpone al menú -->
+<div *ngIf="showWelcomeModal" class="welcome-overlay">
+  <div class="dialog-box">
+    <div class="speech-bubble">
+      ¡Hola! ¡Estoy listo para que juntos aprendamos a sumar, restar y comparar números!
+    </div>
+    <!-- CORRECCIÓN: Se llama a la función correcta 'closeWelcomeModal' -->
+    <ion-button (click)="closeWelcomeModal()" expand="block" shape="round" class="start-button">
+      ¡Empezar!
+    </ion-button>
+  </div>
+  <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1751090555/mono_welcome_2_qaddk8.png" alt="Mascota Mono" class="monkey-mascot">
+</div>

@@ -1,109 +1,68 @@
-ion-content {
-  --background: #f4f5f8;
+// Se importan los estilos base desde el otro archivo para no repetir código
+@import "../base-styles.scss";
+
+// Layout específico para la vista de CAMBIO
+.grid-cambio {
+  height: 100%;
+  display: grid;
+  // Layout por defecto para tablets y pantallas grandes
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 1fr;
+  gap: 2vw;
+  align-items: center;
 }
 
-.cajita-grid {
+.cambio-middle-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 2vh;
   height: 100%;
-  gap: 15px;
+  justify-content: center;
+  align-items: center;
 }
 
-.seccion, .sub-seccion {
-  background: #32fc86;
-  border: 2px solid #00b2f8;
-  border-radius: 12px;
-  padding: 12px;
-  text-align: center;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-
-  &.activa {
-    border-color: var(--ion-color-secondary);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(var(--ion-color-secondary-rgb), 0.3);
-  }
-
-  // La caja FINAL no es clickeable, tiene estilo diferente
-  &.final {
-    background: var(--ion-color-secondary);
-    color: rgb(255, 255, 255);
-    border-color: var(--ion-color-secondary-rgb);
-    cursor: default;
-    h2 {
-      color: rgb(255, 255, 255);
-    }
-  }
-
-  h2, h3 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #ffffff;
-  }
+.sub-box .seccion {
+  aspect-ratio: 1.2 / 1;
+  max-width: 150px;
 }
 
-.seccion-cambio {
-  display: flex;
-  justify-content: space-around;
-  gap: 15px;
-  .sub-seccion {
-    width: 100%;
-  }
-}
-
-.valor-total {
-  font-size: 2.5em;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--ion-color-secondary-rgb);
-}
-
-.final .valor-total {
-  color: white;
-}
-
-.contadores {
-  font-family: monospace;
-  font-size: 0.9em;
-  display: flex;
-  justify-content: space-around;
-  background: rgba(0, 0, 0, 0.05);
-  padding: 5px;
-  border-radius: 8px;
-  span {
-      font-weight: 600;
-  }
-}
-
-.final .contadores {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-
-// Footer con los controles de material
-ion-footer {
-  .material-panel {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 8px 0;
-  }
+// SOLUCIÓN: El panel flotante ahora se ubica en la esquina superior derecha
+.floating-controls-container {
+  top: 90px;
+  right: 20px;
   
-  .material-control {
-    text-align: center;
-    img { 
-      height: 60px;
-      margin-bottom: 4px; 
-      border-radius: 15px;
-    }
-    ion-button {
-      border-radius: 10px;
-      font-size: 1.8em;
-      --padding-start: 5px;
-      --padding-end: 5px;
+  &.visible {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+}
+
+.floating-panel {
+  flex-direction: column; // Los controles ahora están en una columna
+  max-width: 200px;
+  
+  // SOLUCIÓN: Se reduce el tamaño en pantallas pequeñas
+  @media (max-height: 450px) {
+    padding: 8px;
+    gap: 4px;
+    border-radius: 15px;
+
+    .material-control {
+      gap: 5px;
+      img { height: 30px; }
+      .control-btn { font-size: 1.5em; width: 30px; height: 30px; }
     }
   }
+}
+
+// SOLUCIÓN: Media Query para reordenar en pantallas muy anchas y poco altas (celulares en horizontal)
+@media (min-width: 500px) and (max-height: 450px) {
+  .grid-cambio {
+    grid-template-columns: 1fr 0.6fr 1fr;
+    gap: 2vw;
+  }
+}
+
+// SOLUCIÓN: Botón de cierre rojo
+.close-btn {
+  color: #f53d3d !important;
 }

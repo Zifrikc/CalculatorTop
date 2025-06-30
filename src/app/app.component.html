@@ -1,30 +1,22 @@
 <ion-app>
-  <!-- El split-pane permite tener un menú que se oculta en móviles y es visible en tablets/desktop -->
-  <ion-split-pane contentId="main-content">
-    
-    <!-- Definición del Menú Lateral -->
-    <ion-menu contentId="main-content" type="overlay">
-      <ion-header>
-        <ion-toolbar color="primary">
-          <ion-title>OperatorTop</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Actividades</ion-list-header>
-          
-          <!-- Iteramos sobre el array de páginas para crear cada item del menú -->
-          <ion-item *ngFor="let p of appPages" [routerLink]="p.url" routerDirection="root" lines="none" detail="false">
-            <ion-icon aria-hidden="true" slot="start" [name]="p.icon"></ion-icon>
-            <ion-label>{{ p.title }}</ion-label>
-          </ion-item>
+  <!-- El menú ahora es de tipo "overlay" y funcionará correctamente en todas las pantallas -->
+  <ion-menu content-id="main-content" type="overlay">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Actividades</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <!-- El contenido del menú se mantiene igual -->
+      <ion-list id="inbox-list">
+        <ion-item *ngFor="let p of appPages" [routerLink]="p.url" routerDirection="root" lines="none" detail="false">
+          <ion-icon aria-hidden="true" slot="start" [name]="p.icon"></ion-icon>
+          <ion-label>{{ p.title }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
 
-        </ion-list>
-      </ion-content>
-    </ion-menu>
-
-    <!-- El contenido principal de la aplicación. Las páginas se cargarán aquí -->
-    <ion-router-outlet id="main-content"></ion-router-outlet>
-
-  </ion-split-pane>
+  <!-- El router-outlet principal se mantiene -->
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>

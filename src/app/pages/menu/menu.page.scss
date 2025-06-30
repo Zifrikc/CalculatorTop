@@ -11,10 +11,25 @@
   to { transform: translateY(0); opacity: 1; }
 }
 
+/* --- Animaciones Mono --- */
+@keyframes slideInUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  80% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 ion-content {
   // Cuando tengas la URL del fondo, ponla aquí
-  // --background: url('URL_DE_TU_IMAGEN_DE_FONDO') no-repeat center center / cover;
-  --background: #eef2ff; // Un color de fondo suave mientras tanto
+   --background: url('https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750660132/bgSchool2_zuj6gw.gif') no-repeat center center / cover;
+  //--background: #eef2ff; // Un color de fondo suave mientras tanto
 }
 
 .menu-background {
@@ -81,4 +96,74 @@ ion-content {
   .welcome-title {
     font-size: 3.5em;
   }
+}
+
+/* --- NUEVO: Estilos para el Modal de Bienvenida --- */
+.welcome-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); // Fondo oscuro semi-transparente
+  backdrop-filter: blur(4px); // Efecto de difuminado
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.monkey-mascot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: clamp(200px, 40vw, 350px); // Tamaño adaptable
+  height: auto;
+  animation: slideInUp 0.8s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
+}
+
+.dialog-box {
+  position: absolute;
+  bottom: 25%;
+  left: 40%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 400px;
+  animation: popIn 0.6s 0.8s ease-out backwards;
+}
+
+.speech-bubble {
+  background: #fff;
+  padding: 20px;
+  border-radius: 25px;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: #333;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+
+  // Crea la cola del globo de diálogo
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 30%;
+    border-width: 15px 15px 0 15px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+  }
+}
+
+.start-button {
+  --border-radius: 20px;
+  --box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  font-weight: bold;
+  height: 50px;
+  font-size: 1.2rem;
+  text-transform: none;
 }

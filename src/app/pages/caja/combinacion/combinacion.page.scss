@@ -1,117 +1,66 @@
-ion-content {
-  --background: #f4f5f8;
-}
+// Importar estilos base para no repetir código
+@import "../base-styles.scss";
 
-.cajita-grid {
-  display: flex;
-  flex-direction: column;
+// Layout específico para la vista de COMBINACIÓN
+.grid-combinacion {
   height: 100%;
-  gap: 15px;
-}
-
-.seccion {
-  background: #ffffff;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 12px;
-  text-align: center;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-
-  &.activa {
-    border-color: var(--ion-color-tertiary);
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 8px 16px rgba(var(--ion-color-tertiary-rgb), 0.3);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 2vh 4vw;
+  grid-template-areas:
+    "resultado resultado"
+    "entrada1 entrada2";
+  
+  .resultado {
+    grid-area: resultado;
   }
-
-  h2, h3 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #000000;
+  .entrada:nth-of-type(2) {
+    grid-area: entrada1;
+  }
+  .entrada:nth-of-type(3) {
+    grid-area: entrada2;
   }
 }
 
-// Estilo específico para la caja de resultado "Total"
-.total {
-  flex: 1; /* Ocupa más espacio vertical */
-  background: var(--ion-color-primary);
-  color: white;
-  border-color: var(--ion-color-primary-shade);
-  cursor: default;
-  display: flex;
+.valor-total { font-size: clamp(2.5em, 8vh, 4em); }
+.valor-entrada { font-size: clamp(2em, 7vh, 3em); }
+
+// Panel flotante se posiciona a la derecha por defecto
+.floating-controls-container {
+  top: 90px;
+  right: 20px;
+  
+  &.position-left {
+    right: auto;
+    left: 20px;
+  }
+}
+
+.floating-panel {
   flex-direction: column;
-  justify-content: center;
-
-  h2 {
-    color: white;
-  }
-
-  .valor-total {
-    font-size: 3.5em;
-    font-weight: 700;
-    color: white;
-  }
-
-  .contadores {
-    background: rgba(0, 0, 0, 0.2);
-  }
-}
-
-.partes-container {
-  display: flex;
-  gap: 15px;
-  flex: 1; /* Ocupa el espacio restante */
+  max-width: 200px;
   
-  .seccion {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-}
+  @media (max-height: 450px) {
+    padding: 8px;
+    gap: 4px;
+    border-radius: 15px;
 
-.valor-total-parte {
-  font-size: 2.2em;
-  font-weight: 700;
-  color: var(--ion-color-tertiary);
-  margin-bottom: 8px;
-}
-
-.contadores {
-  font-family: monospace;
-  font-size: 0.9em;
-  display: flex;
-  justify-content: space-around;
-  background: rgba(0, 0, 0, 0.521);
-  padding: 5px;
-  border-radius: 8px;
-  span {
-      font-weight: 600;
-  }
-}
-
-// Estilos del footer, se mantienen consistentes
-ion-footer {
-  .material-panel {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 8px 0;
-  }
-  
-  .material-control {
-    text-align: center;
-    img { 
-      height: 60px;
-      margin-bottom: 4px; 
-      border-radius: 15px;
-    }
-    ion-button {
-      font-size: 1.8em;
-      --padding-start: 5px;
-      --padding-end: 5px;
+    .material-control {
+      gap: 5px;
+      img { height: 30px; }
+      .control-btn { font-size: 1.5em; width: 30px; height: 30px; }
     }
   }
+}
+
+// SOLUCIÓN: Media Query para reordenar en pantallas muy anchas y poco altas
+@media (min-width: 700px) and (max-height: 450px) {
+    .grid-combinacion {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        align-items: center;
+        grid-template-areas:
+            "entrada1 resultado entrada2";
+    }
 }

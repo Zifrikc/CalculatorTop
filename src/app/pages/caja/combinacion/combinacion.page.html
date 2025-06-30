@@ -6,76 +6,66 @@
     <ion-title>Taller de Combinación</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="reiniciar()">
-        <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
+        <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750870491/reset_ss2jeq.png" class="header-icon" alt="Reiniciar">
       </ion-button>
-      <ion-button routerLink="/menu">
-        <ion-icon slot="icon-only" name="home-outline"></ion-icon>
+      <ion-button (click)="irAlMenu()">
+        <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750737607/boton-de-inicio_xumtwf.png" class="header-icon" alt="Inicio">
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div class="cajita-grid">
-    <!-- CAJA TOTAL (RESULTADO) -->
-    <div class="seccion total">
-      <h2>TOTAL</h2>
-      <!-- CORRECCIÓN: Usar notación de corchetes -->
-      <div class="valor-total">{{ valores['total'] }}</div>
-      <div class="contadores">
-        <span>U: {{ contadores['total']['U'] }}</span>
-        <span>D: {{ contadores['total']['D'] }}</span>
-        <span>C: {{ contadores['total']['C'] }}</span>
-        <span>UM: {{ contadores['total']['UM'] }}</span>
-      </div>
-    </div>
-
-    <!-- CONTENEDOR PARA LAS PARTES -->
-    <div class="partes-container">
-      <!-- CAJA PARTE 1 -->
-      <div class="seccion" (click)="seleccionarSeccion('parte1')" [class.activa]="seccionActiva === 'parte1'">
-        <h3>PARTE 1</h3>
-        <!-- CORRECCIÓN: Usar notación de corchetes -->
-        <div class="valor-total-parte">{{ valores['parte1'] }}</div>
+  <div class="main-container">
+    <div class="grid-combinacion">
+      <div class="box-wrapper resultado">
+        <div class="seccion">
+          <h3>TOTAL</h3>
+          <div class="valor-total" [class.pop]="animarValor === 'total'">{{ valores['total'] }}</div>
+        </div>
         <div class="contadores">
-          <span>U: {{ contadores['parte1']['U'] }}</span>
-          <span>D: {{ contadores['parte1']['D'] }}</span>
-          <span>C: {{ contadores['parte1']['C'] }}</span>
-          <span>UM: {{ contadores['parte1']['UM'] }}</span>
+            <span>U:{{ contadores['total']['U'] }}</span><span>D:{{ contadores['total']['D'] }}</span><span>C:{{ contadores['total']['C'] }}</span><span>UM:{{ contadores['total']['UM'] }}</span>
         </div>
       </div>
-
-      <!-- CAJA PARTE 2 -->
-      <div class="seccion" (click)="seleccionarSeccion('parte2')" [class.activa]="seccionActiva === 'parte2'">
-        <h3>PARTE 2</h3>
-        <!-- CORRECCIÓN: Usar notación de corchetes -->
-        <div class="valor-total-parte">{{ valores['parte2'] }}</div>
+      
+      <div class="box-wrapper entrada" (click)="seleccionarSeccion('parte1')" [class.activa]="seccionActiva === 'parte1'">
+        <div class="seccion">
+          <h3>PARTE 1</h3>
+          <div class="valor-entrada" [class.pop]="animarValor === 'parte1'">{{ valores['parte1'] }}</div>
+        </div>
         <div class="contadores">
-          <span>U: {{ contadores['parte2']['U'] }}</span>
-          <span>D: {{ contadores['parte2']['D'] }}</span>
-          <span>C: {{ contadores['parte2']['C'] }}</span>
-          <span>UM: {{ contadores['parte2']['UM'] }}</span>
+          <span>U:{{ contadores['parte1']['U'] }}</span><span>D:{{ contadores['parte1']['D'] }}</span><span>C:{{ contadores['parte1']['C'] }}</span><span>UM:{{ contadores['parte1']['UM'] }}</span>
+        </div>
+      </div>
+      
+      <div class="box-wrapper entrada" (click)="seleccionarSeccion('parte2')" [class.activa]="seccionActiva === 'parte2'">
+        <div class="seccion">
+          <h3>PARTE 2</h3>
+          <div class="valor-entrada" [class.pop]="animarValor === 'parte2'">{{ valores['parte2'] }}</div>
+        </div>
+        <div class="contadores">
+          <span>U:{{ contadores['parte2']['U'] }}</span><span>D:{{ contadores['parte2']['D'] }}</span><span>C:{{ contadores['parte2']['C'] }}</span><span>UM:{{ contadores['parte2']['UM'] }}</span>
         </div>
       </div>
     </div>
   </div>
-</ion-content>
 
-<!-- Área de Controles de Material (Footer) -->
-<ion-footer>
-  <ion-toolbar>
-    <div class="material-panel">
+  <div class="floating-controls-container" [ngClass]="{ 'visible': seccionActiva, 'position-left': seccionActiva === 'parte2' }">
+    <div class="floating-panel">
+      <ion-button fill="clear" class="close-btn" (click)="seleccionarSeccion(null)">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
       <div *ngFor="let material of materiales" class="material-control">
         <img [src]="material.imageUrl" [alt]="material.nombre">
-        <div>
-          <ion-button (click)="agregar(material.id)" color="success" fill="clear">
+        <div class="buttons-row">
+          <ion-button (click)="agregar(material.id)" fill="clear" class="control-btn add">
             <ion-icon slot="icon-only" name="add-circle"></ion-icon>
           </ion-button>
-          <ion-button (click)="quitar(material.id)" color="danger" fill="clear">
+          <ion-button (click)="quitar(material.id)" fill="clear" class="control-btn remove">
             <ion-icon slot="icon-only" name="remove-circle"></ion-icon>
           </ion-button>
         </div>
       </div>
     </div>
-  </ion-toolbar>
-</ion-footer>
+  </div>
+</ion-content>

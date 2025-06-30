@@ -6,10 +6,10 @@
     <ion-title>Taller de Comparación</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="reiniciar()">
-        <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
+        <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750870491/reset_ss2jeq.png" class="header-icon" alt="Reiniciar">
       </ion-button>
-      <ion-button routerLink="/menu">
-        <ion-icon slot="icon-only" name="home-outline"></ion-icon>
+      <ion-button (click)="irAlMenu()">
+        <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750737607/boton-de-inicio_xumtwf.png" class="header-icon" alt="Inicio">
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -19,50 +19,51 @@
   <div class="main-container">
     <div class="titulo-principal">COMPARACIÓN - IGUALACIÓN</div>
     <div class="grid-comparacion">
-      <!-- CAJA DIFERENCIA -->
-      <div class="seccion resultado">
-        <h3>DIFERENCIA / FALTA</h3>
-        <div class="valor-total" [class.pop]="animarValor === 'diferencia'">{{ valores['diferencia'] }}</div>
-      </div>
-
-      <!-- CAJA IGUALDAD 1 -->
-      <div class="seccion entrada" (click)="seleccionarSeccion('igualdad1')" [class.activa]="seccionActiva === 'igualdad1'">
-        <h3>IGUALDAD 1</h3>
-        <div class="valor-entrada" [class.pop]="animarValor === 'igualdad1'">{{ valores['igualdad1'] }}</div>
-        <div class="contadores">
-            <!-- Contadores -->
+      <div class="box-wrapper resultado">
+        <div class="seccion">
+          <h3>DIFERENCIA / FALTA</h3>
+          <div class="valor-total" [class.pop]="animarValor === 'diferencia'">{{ valores['diferencia'] }}</div>
         </div>
       </div>
-
-      <!-- CAJA IGUALDAD 2 -->
-      <div class="seccion entrada" (click)="seleccionarSeccion('igualdad2')" [class.activa]="seccionActiva === 'igualdad2'">
-        <h3>IGUALDAD 2</h3>
-        <div class="valor-entrada" [class.pop]="animarValor === 'igualdad2'">{{ valores['igualdad2'] }}</div>
+      
+      <div class="box-wrapper entrada" (click)="seleccionarSeccion('igualdad1')" [class.activa]="seccionActiva === 'igualdad1'">
+        <div class="seccion">
+          <h3>IGUALDAD 1</h3>
+          <div class="valor-entrada" [class.pop]="animarValor === 'igualdad1'">{{ valores['igualdad1'] }}</div>
+        </div>
         <div class="contadores">
-            <!-- Contadores -->
+          <span>U:{{ contadores['igualdad1']['U'] }}</span><span>D:{{ contadores['igualdad1']['D'] }}</span><span>C:{{ contadores['igualdad1']['C'] }}</span><span>UM:{{ contadores['igualdad1']['UM'] }}</span>
+        </div>
+      </div>
+      
+      <div class="box-wrapper entrada" (click)="seleccionarSeccion('igualdad2')" [class.activa]="seccionActiva === 'igualdad2'">
+        <div class="seccion">
+          <h3>IGUALDAD 2</h3>
+          <div class="valor-entrada" [class.pop]="animarValor === 'igualdad2'">{{ valores['igualdad2'] }}</div>
+        </div>
+        <div class="contadores">
+          <span>U:{{ contadores['igualdad2']['U'] }}</span><span>D:{{ contadores['igualdad2']['D'] }}</span><span>C:{{ contadores['igualdad2']['C'] }}</span><span>UM:{{ contadores['igualdad2']['UM'] }}</span>
         </div>
       </div>
     </div>
   </div>
-</ion-content>
 
-
-<!-- Área de Controles de Material (Footer) -->
-<ion-footer>
-  <ion-toolbar>
-    <div class="material-panel">
+  <div class="floating-controls-container" [ngClass]="{ 'visible': seccionActiva, 'position-left': seccionActiva === 'igualdad2' }" >
+    <div class="floating-panel">
+      <ion-button fill="clear" class="close-btn" (click)="seleccionarSeccion(null)">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
       <div *ngFor="let material of materiales" class="material-control">
-        <!-- ACTUALIZACIÓN: Se cambia el [src] para usar la nueva propiedad imageUrl -->
         <img [src]="material.imageUrl" [alt]="material.nombre">
-        <div>
-          <ion-button (click)="agregar(material.id)" color="success" fill="clear">
+        <div class="buttons-row">
+          <ion-button (click)="agregar(material.id)" fill="clear" class="control-btn add">
             <ion-icon slot="icon-only" name="add-circle"></ion-icon>
           </ion-button>
-          <ion-button (click)="quitar(material.id)" color="danger" fill="clear">
+          <ion-button (click)="quitar(material.id)" fill="clear" class="control-btn remove">
             <ion-icon slot="icon-only" name="remove-circle"></ion-icon>
           </ion-button>
         </div>
       </div>
     </div>
-  </ion-toolbar>
-</ion-footer>
+  </div>
+</ion-content>
