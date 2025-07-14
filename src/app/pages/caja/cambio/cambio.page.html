@@ -1,85 +1,87 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Taller de Cambio</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="reiniciar()">
-        <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750870491/reset_ss2jeq.png" class="header-icon" alt="Reiniciar">
-      </ion-button>
-      <ion-button (click)="irAlMenu()">
-        <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750737607/boton-de-inicio_xumtwf.png" class="header-icon" alt="Inicio">
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+ <ion-toolbar color="primary">
+ <ion-buttons slot="start">
+ <ion-menu-button></ion-menu-button>
+</ion-buttons>
+<ion-title>Taller de Cambio</ion-title>
+<ion-buttons slot="end">
+ <ion-button (click)="reiniciar()">
+ <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750870491/reset_ss2jeq.png" class="header-icon" alt="Reiniciar">
+ </ion-button>
+ <ion-button (click)="irAlMenu()">
+  <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750737607/boton-de-inicio_xumtwf.png" class="header-icon" alt="Inicio">
+ </ion-button>
+ </ion-buttons>
+</ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div class="main-container">
-    <div class="grid-cambio">
-      <!-- Columna 1: INICIO -->
-      <div class="box-wrapper entrada" (click)="seleccionarSeccion('inicio')" [class.activa]="seccionActiva === 'inicio'">
-        <div class="seccion">
-          <h3>INICIO</h3>
-          <div class="valor-numero" [class.pop]="animarValor === 'inicio'">{{ valores['inicio'] }}</div>
-        </div>
-        <div class="contadores">
-          <span>U:{{ contadores['inicio']['U'] }}</span><span>D:{{ contadores['inicio']['D'] }}</span><span>C:{{ contadores['inicio']['C'] }}</span><span>UM:{{ contadores['inicio']['UM'] }}</span>
-        </div>
-      </div>
-      
-      <!-- Columna 2: AUMENTA y DISMINUYE -->
-      <div class="cambio-middle-wrapper">
-        <div class="box-wrapper sub-box entrada" (click)="seleccionarSeccion('aumenta')" [class.activa]="seccionActiva === 'aumenta'">
-          <div class="seccion">
-            <h3>AUMENTA (+)</h3>
-            <div class="valor-numero" [class.pop]="animarValor === 'aumenta'">{{ valores['aumenta'] }}</div>
-          </div>
-          <div class="contadores">
-             <span>U:{{ contadores['aumenta']['U'] }}</span><span>D:{{ contadores['aumenta']['D'] }}</span><span>C:{{ contadores['aumenta']['C'] }}</span><span>UM:{{ contadores['aumenta']['UM'] }}</span>
-          </div>
-        </div>
-        <div class="box-wrapper sub-box entrada" (click)="seleccionarSeccion('disminuye')" [class.activa]="seccionActiva === 'disminuye'">
-          <div class="seccion">
-            <h3>DISMINUYE (-)</h3>
-            <div class="valor-numero" [class.pop]="animarValor === 'disminuye'">{{ valores['disminuye'] }}</div>
-          </div>
-          <div class="contadores">
-            <span>U:{{ contadores['disminuye']['U'] }}</span><span>D:{{ contadores['disminuye']['D'] }}</span><span>C:{{ contadores['disminuye']['C'] }}</span><span>UM:{{ contadores['disminuye']['UM'] }}</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Columna 3: FINAL -->
-      <div class="box-wrapper resultado">
-        <div class="seccion">
-          <h3>FINAL</h3>
-          <div class="valor-numero" [class.pop]="animarValor === 'final'">{{ valores['final'] }}</div>
-        </div>
-        <div class="contadores">
-          <span>U:{{ contadores['final']['U'] }}</span><span>D:{{ contadores['final']['D'] }}</span><span>C:{{ contadores['final']['C'] }}</span><span>UM:{{ contadores['final']['UM'] }}</span>
-        </div>
+<ion-content>
+<div class="main-container">
+ <div class="grid-cambio">
+ <!-- Columna 1: INICIO -->
+ <div class="box-wrapper entrada" (click)="seleccionarSeccion('inicio')" [class.activa]="seccionActiva === 'inicio'">
+  <div class="seccion">
+  <h3>INICIO</h3>
+  <div class="valor-numero" [class.pop]="animarValor === 'inicio'">{{ valores['inicio'] }}</div>
+  </div>
+  <div class="contadores">
+   <span>U:{{ contadores['inicio']['U'] }}</span><span>D:{{ contadores['inicio']['D'] }}</span><span>C:{{ contadores['inicio']['C'] }}</span><span>UM:{{ contadores['inicio']['UM'] }}</span>
+  </div>
+ </div>
+ 
+ <!-- Columna 2: AUMENTA y DISMINUYE -->
+ <div class="cambio-middle-wrapper">
+ <div class="box-wrapper sub-box entrada" (click)="seleccionarSeccion('aumenta')" [class.activa]="seccionActiva === 'aumenta'">
+  <div class="seccion">
+   <h3>AUMENTA (+)</h3>
+   <div class="valor-numero" [class.pop]="animarValor === 'aumenta'">{{ valores['aumenta'] }}</div>
+  </div>
+  <div class="contadores">
+  <span>U:{{ contadores['aumenta']['U'] }}</span><span>D:{{ contadores['aumenta']['D'] }}</span><span>C:{{ contadores['aumenta']['C'] }}</span><span>UM:{{ contadores['aumenta']['UM'] }}</span>
+  </div>
+ </div>
+ <div class="box-wrapper sub-box entrada" (click)="seleccionarSeccion('disminuye')" [class.activa]="seccionActiva === 'disminuye'">
+ <div class="seccion">
+  <h3>DISMINUYE (-)</h3>
+  <div class="valor-numero" [class.pop]="animarValor === 'disminuye'">{{ valores['disminuye'] }}</div>
+ </div>
+ <div class="contadores">
+ <span>U:{{ contadores['disminuye']['U'] }}</span><span>D:{{ contadores['disminuye']['D'] }}</span><span>C:{{ contadores['disminuye']['C'] }}</span><span>UM:{{ contadores['disminuye']['UM'] }}</span>
+ </div>
+ </div>
+ </div>
+ 
+ <!-- Columna 3: FINAL -->
+ <div class="box-wrapper resultado">
+  <div class="seccion">
+   <h3>FINAL</h3>
+   <div class="valor-numero" [class.pop]="animarValor === 'final'">{{ valores['final'] }}</div>
+  </div>
+  <div class="contadores">
+  <span>U:{{ contadores['final']['U'] }}</span><span>D:{{ contadores['final']['D'] }}</span><span>C:{{ contadores['final']['C'] }}</span><span>UM:{{ contadores['final']['UM'] }}</span>
+  </div>
+ </div>
+ </div>
+</div>
+<!-- Contenedor de controles flotantes -->
+<div class="floating-controls-container" [ngClass]="{ 'visible': seccionActiva }">
+  <!-- BOTÓN DE CIERRE INDEPENDIENTE Y POSICIONADO DE FORMA ABSOLUTA -->
+  <ion-button fill="clear" class="close-btn" (click)="seleccionarSeccion(null)">
+    <ion-icon slot="icon-only" name="close-circle"></ion-icon>
+  </ion-button>
+  <!-- Panel de controles que ya no es afectado por el botón de cierre -->
+  <div class="floating-panel">
+    <div *ngFor="let material of materiales" class="material-control">
+      <img [src]="material.imageUrl" [alt]="material.nombre">
+      <div class="buttons-row">
+        <ion-button (click)="agregar(material.id)" class="control-btn add">
+          <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1752129333/agregar_dk5z5a.png" alt="Agregar">
+        </ion-button>
+        <ion-button (click)="quitar(material.id)" class="control-btn remove">
+          <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1752129333/eliminar_fk0kw5.png" alt="Quitar">
+        </ion-button>
       </div>
     </div>
   </div>
-
-  <div class="floating-controls-container" [ngClass]="{ 'visible': seccionActiva }">
-    <div class="floating-panel">
-      <ion-button fill="clear" class="close-btn" (click)="seleccionarSeccion(null)">
-        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
-      </ion-button>
-      <div *ngFor="let material of materiales" class="material-control">
-        <img [src]="material.imageUrl" [alt]="material.nombre">
-        <div class="buttons-row">
-          <ion-button (click)="agregar(material.id)" fill="clear" class="control-btn add">
-            <ion-icon slot="icon-only" name="add-circle"></ion-icon>
-          </ion-button>
-          <ion-button (click)="quitar(material.id)" fill="clear" class="control-btn remove">
-            <ion-icon slot="icon-only" name="remove-circle"></ion-icon>
-          </ion-button>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 </ion-content>
