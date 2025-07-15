@@ -49,8 +49,29 @@
       </div>
     </div>
   </div>
-
-  <div class="floating-controls-container" [ngClass]="{ 'visible': seccionActiva, 'position-left': seccionActiva === 'parte2' }">
+<!-- Contenedor de controles flotantes -->
+<div class="floating-controls-container" [ngClass]="{ 'visible': seccionActiva , 'position-left': seccionActiva === 'parte2' }">
+  <!-- BOTÓN DE CIERRE INDEPENDIENTE Y POSICIONADO DE FORMA ABSOLUTA -->
+  <ion-button fill="clear" class="close-btn" (click)="seleccionarSeccion(null)">
+    <ion-icon slot="icon-only" name="close-circle"></ion-icon>
+  </ion-button>
+  <!-- Panel de controles que ya no es afectado por el botón de cierre -->
+  <div class="floating-panel">
+    <div *ngFor="let material of materiales" class="material-control">
+      <img [src]="material.imageUrl" [alt]="material.nombre">
+      <div class="buttons-row">
+        <ion-button (click)="agregar(material.id)" class="control-btn add">
+          <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1752129333/agregar_dk5z5a.png" alt="Agregar">
+        </ion-button>
+        <ion-button (click)="quitar(material.id)" class="control-btn remove">
+          <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1752129333/eliminar_fk0kw5.png" alt="Quitar">
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</div>
+</ion-content>
+  <!-- <div class="floating-controls-container" [ngClass]="{ 'visible': seccionActiva, 'position-left': seccionActiva === 'parte2' }">
     <div class="floating-panel">
       <ion-button fill="clear" class="close-btn" (click)="seleccionarSeccion(null)">
         <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
@@ -68,4 +89,4 @@
       </div>
     </div>
   </div>
-</ion-content>
+</ion-content> -->
