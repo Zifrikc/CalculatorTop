@@ -18,7 +18,16 @@ ion-content {
  flex-direction: column;
  height: 100%;
  position: relative;
- overflow: hidden;
+ 
+ /* MEJORA 1: Habilitar Scroll Vertical */
+ /* Se cambia 'overflow: hidden' por 'overflow-y: auto' para permitir el scroll 
+    cuando el contenido es más alto que la pantalla (ej. con la barra de estado visible). */
+ overflow-x: hidden;
+ overflow-y: auto;
+ 
+ /* MEJORA 2: Añadir espaciado vertical para que no se pegue a los bordes */
+ padding: 1vh 0;
+ box-sizing: border-box;
 }
 
 .box-wrapper {
@@ -27,7 +36,7 @@ ion-content {
  align-items: center;
  gap: 1vh;
  width: 100%;
- height: 100%;
+ /* Se quita height: 100% para que el tamaño dependa del contenido */
  justify-content: center;
 }
 
@@ -78,6 +87,7 @@ ion-content {
 }
 
 .floating-controls-container {
+ right: 30px; 
  position: absolute;
  z-index: 100;
  opacity: 0;
@@ -88,10 +98,10 @@ ion-content {
  
  /* --- AJUSTE DE POSICIÓN --- */
  /* Aquí puedes cambiar qué tan lejos está el panel del borde derecho */
- right: 30px; 
+ 
 
- transform: translateY(-50%) scale(0.95); /* Centrado vertical y estado inicial para animación */
- transition: opacity 0.3s, transform 0.3s;
+//  transform: translateY(-50%) scale(0.95); /* Centrado vertical y estado inicial para animación */
+//  transition: opacity 0.3s, transform 0.3s;
 
  &.visible {
   opacity: 1;
@@ -121,7 +131,7 @@ ion-content {
  top: -35px;
  right: -35px;
  z-index: 101;
- font-size: 2em; /* Tamaño del ícono reducido */
+ font-size: 30px; /* Tamaño del ícono reducido */
  color: #f53d3d;
  text-shadow: 0 0 5px rgba(0,0,0,0.6);
  --padding-start: 0;
@@ -169,4 +179,13 @@ ion-content {
    height: 100%;
   }
  }
+}
+/* MEJORA 3: Media Query para pantallas con poca altura */
+@media (max-height: 400px) and (orientation: landscape) {
+  .seccion {
+    max-width: 180px; /* Cajas más pequeñas */
+  }
+  .valor-numero {
+    font-size: clamp(1.5em, 6vh, 2.5em); /* Texto más pequeño */
+  }
 }

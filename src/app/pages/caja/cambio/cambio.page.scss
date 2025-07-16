@@ -37,3 +37,12 @@
   right: 15px; 
  }
 }
+/* MEJORA 3: Media Query para pantallas con poca altura */
+@media (max-height: 400px) and (orientation: landscape) {
+  .seccion {
+    max-width: 180px; /* Cajas más pequeñas */
+  }
+  .valor-numero {
+    font-size: clamp(1.5em, 6vh, 2.5em); /* Texto más pequeño */
+  }
+}

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonButton, IonIcon, IonContent, IonFooter } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { addCircle, removeCircle, closeCircleOutline } from 'ionicons/icons';
+import { addCircle,closeCircle, removeCircle, closeCircleOutline } from 'ionicons/icons';
 import { Router } from '@angular/router';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 
@@ -35,7 +35,7 @@ export class CombinacionPage {
   animarValor: string | null = null;
 
   constructor(private router: Router) {
-    addIcons({ addCircle, removeCircle, closeCircleOutline });
+    addIcons({closeCircle,addCircle,removeCircle,closeCircleOutline});
     this.reiniciar();
   }
 
