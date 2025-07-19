@@ -72,7 +72,9 @@ ion-content {
  &.pop { animation: pop 0.3s ease-out; }
  font-size: clamp(2em, 7vh, 3em);
 }
-
+.floating-controls-container {
+padding-right: 30px;
+}
 .contadores {
  background: rgba(0, 0, 0, 0.4);
  border-radius: 20px;
@@ -87,6 +89,7 @@ ion-content {
 }
 
 .floating-controls-container {
+
  right: 30px; 
  position: absolute;
  z-index: 100;
@@ -129,7 +132,7 @@ ion-content {
 .close-btn {
  position: absolute;
  top: -35px;
- right: -35px;
+ right: -15px;
  z-index: 101;
  font-size: 30px; /* Tamaño del ícono reducido */
  color: #f53d3d;

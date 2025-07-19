@@ -24,6 +24,10 @@
  max-width: 150px;
 }
 
+.floating-controls-container {
+padding-right: 30px;
+}
+
 /* MEJORA: La media query ahora solo ajusta la posición horizontal, 
   ya que el centrado vertical es automático.
 */
@@ -34,7 +38,7 @@
  }
  .floating-controls-container {
     /* Solo se necesita ajustar el 'right' para pantallas más pequeñas si es necesario */
-  right: 15px; 
+  right: 30px; 
  }
 }
 /* MEJORA 3: Media Query para pantallas con poca altura */
