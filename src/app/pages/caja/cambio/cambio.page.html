@@ -1,18 +1,18 @@
 <ion-header>
- <ion-toolbar color="primary">
+  <ion-toolbar color="primary">
     <ion-button slot="start" (click)="irAlMenu()">
-      <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750737600/back_zznh6d.png"  class="header-icon" alt="back">
+      <img src="../../../../assets/back_button.png"  class="header-icon" alt="back">
     </ion-button>
-<ion-title>Taller de Cambio</ion-title>
-<ion-buttons slot="end">
- <ion-button (click)="reiniciar()">
- <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750870491/reset_ss2jeq.png" class="header-icon" alt="Reiniciar">
- </ion-button>
- <ion-button (click)="irAlMenu()">
-  <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750737607/boton-de-inicio_xumtwf.png" class="header-icon" alt="Inicio">
- </ion-button>
- </ion-buttons>
-</ion-toolbar>
+    <ion-title>Taller de Cambio</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="reiniciar()">
+        <img src="../../../../assets/reset_button.png" class="header-icon" alt="Reiniciar">
+      </ion-button>
+      <ion-button (click)="irAlMenu()">
+        <img src="../../../../assets/home_button.png" class="header-icon" alt="Inicio">
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -75,10 +75,10 @@
       <img [src]="material.imageUrl" [alt]="material.nombre">
       <div class="buttons-row">
         <ion-button (click)="agregar(material.id)" class="control-btn add">
-          <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1752129333/agregar_dk5z5a.png" alt="Agregar">
+          <img src="../../../../assets/add_button.png" alt="Agregar">
         </ion-button>
         <ion-button (click)="quitar(material.id)" class="control-btn remove">
-          <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1752129333/eliminar_fk0kw5.png" alt="Quitar">
+          <img src="../../../../assets/remove_button.png" alt="Quitar">
         </ion-button>
       </div>
     </div>

@@ -24,10 +24,10 @@ type Contador = { U: number; D: number; C: number; UM: number };
 })
 export class CambioPage {
   materiales: Material[] = [
-    { id: 'U', nombre: 'Unidad', valor: 1, imageUrl: 'https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1752304449/unidad1_bubctq.png' },
-    { id: 'D', nombre: 'Decena', valor: 10, imageUrl: 'https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1752304449/decena_nmkk2y.png' },
-    { id: 'C', nombre: 'Centena', valor: 100, imageUrl: 'https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1752304449/centena_zebcbn.png' },
-    { id: 'UM', nombre: 'Unidad de Millar', valor: 1000, imageUrl: 'https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1752304449/millar_yrvbvn.png' },
+    { id: 'U', nombre: 'Unidad', valor: 1, imageUrl: "../../../../assets/unidad1.png" },
+    { id: 'D', nombre: 'Decena', valor: 10, imageUrl: '../../../../assets/decena.png' },
+    { id: 'C', nombre: 'Centena', valor: 100, imageUrl: '../../../../assets/centena.png' },
+    { id: 'UM', nombre: 'Unidad de Millar', valor: 1000, imageUrl: '../../../../assets/millar.png' },
   ];
   seccionActiva: 'inicio' | 'aumenta' | 'disminuye' | null = null;
   contadores: { [key: string]: Contador } = {};

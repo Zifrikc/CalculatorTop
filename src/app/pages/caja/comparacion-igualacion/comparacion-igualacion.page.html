@@ -1,15 +1,15 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-button slot="start" (click)="irAlMenu()">
-      <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750737600/back_zznh6d.png"  class="header-icon" alt="back">
+      <img src="../../../../assets/back_button.png"  class="header-icon" alt="back">
     </ion-button>
     <ion-title>Taller de Comparación</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="reiniciar()">
-        <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750870491/reset_ss2jeq.png" class="header-icon" alt="Reiniciar">
+        <img src="../../../../assets/reset_button.png" class="header-icon" alt="Reiniciar">
       </ion-button>
       <ion-button (click)="irAlMenu()">
-        <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750737607/boton-de-inicio_xumtwf.png" class="header-icon" alt="Inicio">
+        <img src="../../../../assets/home_button.png" class="header-icon" alt="Inicio">
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -58,32 +58,13 @@
       <img [src]="material.imageUrl" [alt]="material.nombre">
       <div class="buttons-row">
         <ion-button (click)="agregar(material.id)" class="control-btn add">
-          <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1752129333/agregar_dk5z5a.png" alt="Agregar">
+          <img src="../../../../assets/add_button.png" alt="Agregar">
         </ion-button>
         <ion-button (click)="quitar(material.id)" class="control-btn remove">
-          <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1752129333/eliminar_fk0kw5.png" alt="Quitar">
+          <img src="../../../../assets/remove_button.png" alt="Quitar">
         </ion-button>
       </div>
     </div>
   </div>
 </div>
 </ion-content>
-  <!-- <div class="floating-controls-container" [ngClass]="{ 'visible': seccionActiva, 'position-left': seccionActiva === 'igualdad2' }" >
-    <div class="floating-panel">
-      <ion-button fill="clear" class="close-btn" (click)="seleccionarSeccion(null)">
-        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
-      </ion-button>
-      <div *ngFor="let material of materiales" class="material-control">
-        <img [src]="material.imageUrl" [alt]="material.nombre">
-        <div class="buttons-row">
-          <ion-button (click)="agregar(material.id)" fill="clear" class="control-btn add">
-            <ion-icon slot="icon-only" name="add-circle"></ion-icon>
-          </ion-button>
-          <ion-button (click)="quitar(material.id)" fill="clear" class="control-btn remove">
-            <ion-icon slot="icon-only" name="remove-circle"></ion-icon>
-          </ion-button>
-        </div>
-      </div>
-    </div>
-  </div>
-</ion-content> -->

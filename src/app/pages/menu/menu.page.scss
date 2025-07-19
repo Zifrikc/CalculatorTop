@@ -28,8 +28,9 @@
 
 ion-content {
   // Cuando tengas la URL del fondo, ponla aquí
-   --background: url('https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750660132/bgSchool2_zuj6gw.gif') no-repeat center center / cover;
+   --background: url('../../../assets/bg\ menu.gif') no-repeat center center / cover;
   //--background: #eef2ff; // Un color de fondo suave mientras tanto
+
 }
 
 .menu-background {
@@ -56,7 +57,7 @@ ion-content {
 
 // NUEVOS estilos para el botón con imagen
 .image-button {
-  background: url('https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1750467766/navbar3_ezpe4s.png') no-repeat center center;
+  background: url('../../../assets/buttonsmenu.png') no-repeat center center;
   background-size: contain;
   height: 100px;
   width: 100%;
